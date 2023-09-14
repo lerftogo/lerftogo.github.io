@@ -33,6 +33,17 @@ body {
     letter-spacing: 4;
 }
 
+.title-mobile {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: 'Varela Round',sans-serif;
+    color: #4d4d4d;
+    font-size: 40px;
+    line-height: 65px;
+    font-weight: 700;
+    letter-spacing: 4;
+}
+
 .subheader {
     margin-top: 0;
     margin-bottom: 10px;
