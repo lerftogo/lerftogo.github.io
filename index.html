@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Redirect</title>
+    <script>
+        // Check if the user is on a mobile device or the window width is 800px or less.
+        if (window.innerWidth <= 800 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            window.location.href = "mobile.html";  // Redirect to mobile version
+        } else {
+            window.location.href = "desk.html"; // Redirect to desktop version
+        }
+    </script>
+</head>
+<body>
+    <!-- This body content will likely never be seen as the script in the head will execute before rendering. -->
+    Redirecting based on your device...
+</body>
+</html>
