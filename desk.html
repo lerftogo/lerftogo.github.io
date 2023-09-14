@@ -20,12 +20,12 @@
     <meta content="LERF-TOGO uses LERF and DINO features to find semantic grasps for language-specified tasks performing zero-shot semantic grasping."
         name="description"
         property="og:description" />
-    <meta content="https://lerf-togo.github.io/data/meta.jpg" property="og:image" />
+    <meta content="https://lerftogo.github.io/data/meta.jpg" property="og:image" />
     <meta content="Language Embedded Radiance Fields for Zero-Shot Task-Oriented Grasping" property="twitter:title" />
     <meta content="LERF-TOGO uses LERF and DINO features to find semantic grasps for language-specified tasks performing zero-shot semantic grasping."
         name="description"
         property="twitter:description" />
-    <meta content="https://lerf-togo.github.io/meta.png" property="twitter:image" />
+    <meta content="https://lerftogo.github.io/meta.jpg" property="twitter:image" />
     <meta property="og:type" content="website" />
     <meta content="summary_large_image" name="twitter:card" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
@@ -139,7 +139,7 @@
             </div>
             <h1 class="tldr">
                 <b>TL;DR</b>:
-                LERF-TOGO uses LERF and DINO features to find semantic grasps for language-specified tasks performing zero-shot semantic grasping.
+                LERF-TOGO uses CLIP and DINO features for language-specified tasks performing zero-shot semantic grasping.
             </h1>
             <br>
             <video id="main-video" autobuffer muted autoplay loop controls>
@@ -155,6 +155,18 @@
                         <div class="video-container">
                             <video  loop playsinline muted autoplay>
                                 <source autoplay src="data/carousel/rose_plantstem.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="video-container">
+                            <video  loop playsinline muted autoplay>
+                                <source autoplay src="data/carousel/saucepan_lid.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="video-container">
+                            <video  loop playsinline muted autoplay>
+                                <source autoplay src="data/carousel/wine_neck.mp4" type="video/mp4">
                             </video>
                         </div>
 
@@ -176,17 +188,6 @@
                             </video>
                         </div>
 
-                        <div class="video-container">
-                            <video  loop playsinline muted autoplay>
-                                <source autoplay src="data/carousel/estop_press.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        
-                        <div class="video-container">
-                            <video  loop playsinline muted autoplay>
-                                <source autoplay src="data/carousel/saucepan_lid.mp4" type="video/mp4">
-                            </video>
-                        </div>
 
                         <div class="video-container">
                             <video  loop playsinline muted autoplay>
@@ -194,15 +195,16 @@
                             </video>
                         </div>
 
+
                         <div class="video-container">
                             <video  loop playsinline muted autoplay>
-                                <source autoplay src="data/carousel/wine_neck.mp4" type="video/mp4">
+                                <source autoplay src="data/carousel/corkscrew_handle.mp4" type="video/mp4">
                             </video>
                         </div>
 
                         <div class="video-container">
                             <video  loop playsinline muted autoplay>
-                                <source autoplay src="data/carousel/corkscrew_handle.mp4" type="video/mp4">
+                                <source autoplay src="data/carousel/estop_press.mp4" type="video/mp4">
                             </video>
                         </div>
 
@@ -222,7 +224,6 @@
                     <button class="carousel-button right" type="button">&gt;</button>
                 </div>
             </nav>
-
             <div class="base-row add-top-padding">
                 <h1 id="abstract">Abstract</h1>
                 <p class="paragraph">
@@ -243,15 +244,16 @@
             <div>
                 <img id="splash-fig" src="data/splash.jpg" />
             </div>
-
+            <div class="base-row add-top-padding">
+                <h1 id="abstract">Results</h1>
+            </div>
             <div class="base-row">
 
                 <div class="base-row add-top-padding">
                     <!-- <h1 id="abstract">Interacting with LERF on hand-captured scenes</h1> -->
-                    <h1 class="tldr">
-                        <b>Click the thumbnails below to load scenes, use SEM/GEO to toggle between Semantic and Geometric grasps
-                            videos.</b>
-                    </h1>
+                    <h3 class="results-text">
+                        <b>Click the thumbnails below to load the interactive scenes, use SEM/GEO to toggle between Semantic and Geometric grasps.</b>
+                    </h3>
                 </div>
 
                 <!-- <div id="main-results">
@@ -405,9 +407,21 @@
                     </button>
                 </div>
                 </div>
+                <h3>This in-broweser interactive 3D scene is enabled with <a style="text-decoration:none" href="https://github.com/nerfstudio-project/viser">Viser</a></h3>
+                <br>
 
                 <div class="base-row add-top-padding">
-                    <h1>Why LERF?</h1>
+                    <h1>How it works</h1>
+                    <p class="paragraph">
+                        Given an object and object part query, LERF-TOGO outputs a ranking of viable grasps on the object part. 
+                        First, LERF generates a 3D relevancy map that highlights the relevant parts of the scene. 
+                        Second, a 3D object mask is generated using the LERF relevancy for the object query and DINO based semantic grouping. 
+                        Third, a 3D part relevancy map is generated with a conditional LERF query over the object part query and the 3D object mask. 
+                        The part relevancy map is used to produce a semantic grasp distribution.
+                    </p>
+                </div>
+                <div class="base-row add-top-padding">
+                    <h2>Why LERF?</h2>
                     <p class="paragraph">
                         LERF provides a dense, multi-scale 3D language field that can be queried zero-shot for long-tail objects. Since LERF 
                         is trained on multi-scale CLIP features, it can support more granular language queries like those of object parts. Similarly to LERF, Conceptfusion 
@@ -419,7 +433,7 @@
                 <img id="cf-img" src="data/cf_comparison.jpg" />
 
                 <div id="why-lerf">
-                    <h1> Why DINO?</h1>
+                    <h2> Why DINO?</h2>
                     <p class="paragraph">
                         LERF has no sense of objectness, meaning the activation maps returned by LERF  
                         are sometimes incomplete or don't respect the object's geometric boundaries.
